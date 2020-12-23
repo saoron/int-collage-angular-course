@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
   public currentUserToken: string;
+  public weight = 70;
+  public height = 170;
+  public bmiSubject = new Subject<number>();
 
   constructor(private http: HttpClient) {}
 
@@ -27,11 +31,15 @@ export class UsersService {
             localStorage.setItem('currentUserToken', token.token);
             this.currentUserToken = token.token;
 
-            resolve();
+            resolve(true);
           },
           (e) => reject(e)
         );
     });
+  }
+
+  public updateBMI(newBmi) {
+    this.bmiSubject.next(newBmi * -1);
   }
 
   public logout() {

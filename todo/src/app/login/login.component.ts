@@ -16,13 +16,22 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    this.users.login(this.username, this.password).then(
-      () => {
-        this.router.navigate(['/']);
-      },
-      (error) => {
-        console.error(error);
+    return new Promise((resolve, reject) => {
+      if (!this.username || !this.password) {
+        resolve(false);
+        return;
       }
-    );
+
+      this.users.login(this.username, this.password).then(
+        (res: any) => {
+          this.router.navigate(['/']);
+          resolve(true);
+        },
+        (error) => {
+          console.error(error);
+          reject(error);
+        }
+      );
+    });
   }
 }

@@ -1,4 +1,15 @@
 <h1>Welcome to the Todo App</h1>
 
-<a routerLink="/login">Login</a><br />
-<a routerLink="/todo">Todo</a>
+<a id="login" routerLink="/login">Login</a><br />
+<a id="todo" routerLink="/todo">Todo</a>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="bmi">
+  {{ numbersCrunched }}
+</div>
+
+<button (click)="startCrunchingNumbers()">Start Crunching Numbers</button>

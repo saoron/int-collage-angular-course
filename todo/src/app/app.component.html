@@ -1,6 +1,13 @@
 <div class="header">
   Header
-  <button *ngIf="users.currentUserToken" (click)="logout()">LogOut</button>
+  <button id="logOutButton" *ngIf="users.currentUserToken" (click)="logout()">
+    LogOut
+  </button>
 </div>
 
+<h1>{{ "TITLE" | translate }}:</h1>
+<h2>{{ "TITLE2" | translate }}:</h2>
 <router-outlet></router-outlet>
+
+<button (click)="changeLang('he')">He</button>
+<button (click)="changeLang('en')">En</button>

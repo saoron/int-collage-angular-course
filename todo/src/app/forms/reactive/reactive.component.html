@@ -1,0 +1,58 @@
+<form [formGroup]="profileForm">
+  <label>
+    UserId:
+    <input
+      required
+      type="text"
+      formControlName="userId"
+      [ngClass]="{
+        errored:
+          userId.errors &&
+          userId.errors.required &&
+          (userId.dirty || userId.touched)
+      }"
+    />
+  </label>
+  <label>
+    Email:
+    <input
+      type="text"
+      formControlName="email"
+      [ngClass]="{
+        errored:
+          email.errors &&
+          email.errors.required &&
+          (email.dirty || email.touched)
+      }"
+    />
+  </label>
+  <label>
+    Age:
+    <input
+      type="text"
+      formControlName="age"
+      [ngClass]="{
+        errored: age.errors && age.errors.required && (age.dirty || age.touched)
+      }"
+    />
+  </label>
+</form>
+
+<!-- <div
+  *ngIf="checkForErrors && validationErrors.length && profileForm.invalid"
+  class="alert alert-danger"
+>
+  <div *ngFor="let validationError of validationErrors">
+    {{ validationError }}
+  </div>
+</div>
+
+<button (click)="submit()">Send</button>
+<br />
+<br />
+<br />
+<br />
+<label><b>Values</b></label>
+{{ profileForm.errors | json }}
+<br />
+<label>IsValid? {{ profileForm.hasError() }}</label> -->

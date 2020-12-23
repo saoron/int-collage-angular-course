@@ -6,6 +6,20 @@ export class AppPage {
   }
 
   getTitleText() {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+    return element(by.css('h1')).getText() as Promise<string>;
+  }
+
+  clickGoToTODO() {
+    element(by.id('todo')).click();
+  }
+
+  getCurrentURL() {
+    return browser.baseUrl;
+  }
+
+  enterLoginCredentialsAndLogin() {
+    element(by.name('username')).sendKeys('demo');
+    element(by.name('password')).sendKeys('123');
+    element(by.id('login')).click();
   }
 }

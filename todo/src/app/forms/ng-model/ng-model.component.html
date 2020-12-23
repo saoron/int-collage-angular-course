@@ -1,0 +1,10 @@
+<h1>Welcome to the Lottery website!</h1>
+
+<form>
+  <label>ID</label>
+  <input type="text" name="userId" [(ngModel)]="user.id" />
+</form>
+
+<p>User id: {{ user.id }}</p>
+
+<div class="error" *ngIf="!user.id">Userid is missing</div>
